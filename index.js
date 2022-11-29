@@ -10,7 +10,7 @@ app.post('/saml/hook', (req, res) => {
 
 app.all('/', (req, res) => {
     console.log("Just got a request!")
-    res.send('Yo!')
+    res.status(204).json();
 });
 
 app.listen(process.env.PORT || 3000);
