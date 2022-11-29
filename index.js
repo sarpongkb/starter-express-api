@@ -4,9 +4,11 @@ const app = express();
 app.use(express.json());
 
 app.post('/saml/hook', (req, res) => {
-    console.log("Received request at 'saml/hook': ", req);
+    console.log("Received request at 'saml/hook': ", req.body);
     
     const sessionId = req.body?.data?.context?.session?.id;
+    
+    console.log("sessionId: ", sessionId);
     
     res.status(200).json({ 
         "commands": [{
