@@ -3,8 +3,8 @@ const app = express();
 
 app.use(express.json());
 
-app.post('/saml/hook', (req, res) => {
-    console.log("Received request at 'saml/hook': ", req.body);
+app.post('/oauth/saml-hook', (req, res) => {
+    console.log("Received request at '/oauth/saml-hook': ", req.body);
     
     const sessionId = req.body?.data?.context?.session?.id;
     
@@ -22,8 +22,8 @@ app.post('/saml/hook', (req, res) => {
                     },
                     "attributeValues":[{
                         "attributes": { "xsi:type": "xs:string" },
-                         "value": sessionId,
-                     }]
+                        "value": sessionId,
+                    }]
                 }
             }]
         }]
